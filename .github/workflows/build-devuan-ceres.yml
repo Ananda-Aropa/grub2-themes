@@ -21,6 +21,9 @@ jobs:
       - name: Check out
         uses: actions/checkout@v4
 
+      - name: Set up source files
+        run: ./debian/setup.sh
+
       - name: Build DEB package
         uses: DevChall-by-SDCY-and-VXM/debian-buildpackage-template@main
         with:

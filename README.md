@@ -3,5 +3,5 @@
 ## Command used to generate theme for BlissOS
 
 ```
-./install.sh -t vimix -i white -g grub
+./install.sh -t blissos -i white -g grub
 ```

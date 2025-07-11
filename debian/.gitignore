@@ -1,5 +1,5 @@
-/grub-theme-blissos/
-/grub-theme-blissos-*-*-*/
+/grub-theme/
+/grub-theme-*-*-*/
 /.debhelper
 debhelper-build-stamp
 *.substvars

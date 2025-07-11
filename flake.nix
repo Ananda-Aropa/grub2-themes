@@ -90,9 +90,9 @@
                 '';
               };
               theme = mkOption {
-                default = "tela";
-                example = "tela";
-                type = types.enum [ "tela" "vimix" "stylish" "whitesur" ];
+                default = "blissos";
+                example = "blissos";
+                type = types.enum [ "blissos" "bassos" "lineageos" ];
                 description = ''
                   The theme to use for grub2.
                 '';
@@ -100,7 +100,7 @@
               icon = mkOption {
                 default = "white";
                 example = "white";
-                type = types.enum [ "color" "white" "whitesur" ];
+                type = types.enum [ "color" "white" ];
                 description = ''
                   The icon to use for grub2.
                 '';
