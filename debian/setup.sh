@@ -52,7 +52,7 @@ DATE=$(git log -1 --pretty=format:'%ad' --date=format:'%a, %d %b %Y %H:%M:%S %z'
 
 # Generate changelog
 cat <<EOF >changelog
-grub-theme (1.1.0-1) $DISTRO; urgency=medium
+grub-theme (1.2.0-1) $DISTRO; urgency=medium
 
 $(echo -e "$MSG" | sed -r 's/^/  * /g')
 
