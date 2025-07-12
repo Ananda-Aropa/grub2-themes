@@ -8,14 +8,18 @@ cd "$(dirname "$0")"
 DISTRO="${DISTRO:-unstable}"
 MAINTAINER=$(git log -1 --pretty=format:'%an <%ae>')
 ORIGIN=$(git remote get-url origin)
+VERSION=$(cat ../VERSION | cut -d'v' -f2)
+REVISION=${REVISION:-0}
 
 THEME_VARIANTS=('blissos' 'bassos' 'lineageos')
 ICON_VARIANTS=('color' 'white')
 SCREEN_VARIANTS=('1080p' '2k' '4k' 'ultrawide' 'ultrawide2k')
 
+PACKAGE_NAME=grub-theme
+
 # Gen control
 cat <<EOF >control
-Source: grub-theme
+Source: $PACKAGE_NAME
 Section: unknown
 Priority: optional
 Maintainer: $MAINTAINER
@@ -33,7 +37,7 @@ for theme in "${THEME_VARIANTS[@]}"; do
 		for screen in "${SCREEN_VARIANTS[@]}"; do
 			# Append to control file
 			cat <<EOF >>control
-Package: grub-theme-${theme}-${icon}-${screen}
+Package: ${PACKAGE_NAME}-${theme}-${icon}-${screen}
 Architecture: all
 Multi-Arch: foreign
 Depends: \${misc:Depends},
@@ -52,7 +56,7 @@ DATE=$(git log -1 --pretty=format:'%ad' --date=format:'%a, %d %b %Y %H:%M:%S %z'
 
 # Generate changelog
 cat <<EOF >changelog
-grub-theme (1.2.0-1) $DISTRO; urgency=medium
+${PACKAGE_NAME} ($VERSION-$REVISION) $DISTRO; urgency=medium
 
 $(echo -e "$MSG" | sed -r 's/^/  * /g')
 
